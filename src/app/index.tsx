@@ -1,9 +1,12 @@
-import AppRouter from "@/app/router"
+import AppRouter from '@/app/router'
+import { AuthProvider } from '@/context/AuthContext'
 
 const App = () => {
     // later add auth context here
     return (
-       <AppRouter />
+        <AuthProvider>
+            <AppRouter />
+        </AuthProvider>
     )
 }
 
