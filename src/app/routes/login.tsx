@@ -1,3 +1,4 @@
+import bunqLogo from '@/assets/bunq-logo.png'
 import { useAuth } from '@/context/AuthContext'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -7,18 +8,17 @@ const LoginPage: React.FC = () => {
     const navigate = useNavigate()
 
     return (
-        <div>
-            <h1>LOGIN PAGE</h1>
-
+        <main className="flex h-full items-center justify-center bg-slate-800">
             <button
+                className="cursor-pointer"
                 onClick={() => {
                     login()
                     navigate('/')
                 }}
             >
-                login
+                <img src={bunqLogo} alt="bunq-logo" className="w-[250px]" />
             </button>
-        </div>
+        </main>
     )
 }
 
