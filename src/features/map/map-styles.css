@@ -1,0 +1,12 @@
+/* remove map markerks */
+
+.gmnoprint a,
+.gmnoprint span {
+    display: none;
+}
+.gmnoprint div {
+    background: none !important;
+}
+#GMapsID div div a div img {
+    display: none;
+}
