@@ -4,12 +4,14 @@ import { useHome } from '@/context/HomeContext'
 import {
     AMSTERDAM_COORDINATES,
     customMapStyles,
-    mapContainerStyle,
+    mapContainerStyleDesktop,
+    mapContainerStyleMobile,
     NETHERLANDS_BOUNDS,
 } from '@/features/map/constants'
 import { Place } from '@/features/map/map-service'
 import '@/features/map/map-styles.css'
 import PlaceCard from '@/features/map/PlaceCard'
+import useIsMobile from '@/utils/isMobile'
 import { GoogleMap, MarkerF, OverlayView } from '@react-google-maps/api'
 import { useRef, useState } from 'react'
 
@@ -19,6 +21,8 @@ const Map: React.FC = () => {
     const [mapLoaded, setMapLoaded] = useState(false)
     const [selectedPlace, setSelectedPlace] = useState<Place | null>(null)
     const mapRef = useRef<google.maps.Map | null>(null)
+
+    const isMobile = useIsMobile()
 
     const handleMarkerClick = (place: Place) => {
         setSelectedPlace(place)
@@ -37,7 +41,9 @@ const Map: React.FC = () => {
                 setMapLoaded(true)
                 mapRef.current = map
             }}
-            mapContainerStyle={mapContainerStyle}
+            mapContainerStyle={
+                isMobile ? mapContainerStyleMobile : mapContainerStyleDesktop
+            }
             center={AMSTERDAM_COORDINATES}
             zoom={8}
             options={{

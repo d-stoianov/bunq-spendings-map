@@ -1,8 +1,14 @@
 const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
-const mapContainerStyle = {
+const mapContainerStyleDesktop = {
     width: '100%',
     height: '700px',
+    borderRadius: '20px',
+}
+
+const mapContainerStyleMobile = {
+    width: '100%',
+    height: '450px',
     borderRadius: '20px',
 }
 
@@ -388,6 +394,7 @@ export {
     AMSTERDAM_COORDINATES,
     customMapStyles,
     GOOGLE_MAPS_API_KEY,
-    mapContainerStyle,
+    mapContainerStyleDesktop,
+    mapContainerStyleMobile,
     NETHERLANDS_BOUNDS,
 }
