@@ -1,5 +1,6 @@
 import {
     AMSTERDAM_COORDINATES,
+    customMapStyles,
     GOOGLE_MAPS_API_KEY,
     mapContainerStyle,
     NETHERLANDS_BOUNDS,
@@ -48,6 +49,7 @@ const Map: React.FC = () => {
                         latLngBounds: NETHERLANDS_BOUNDS,
                         strictBounds: true,
                     },
+                    styles: customMapStyles
                 }}
             >
                 {/* create markers for place types */}
