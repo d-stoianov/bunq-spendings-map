@@ -7,12 +7,15 @@ import {
 } from '@/features/map/constants'
 import mapService, { Place } from '@/features/map/map-service'
 import '@/features/map/map-styles.css'
+import PlaceCard from '@/features/map/PlaceCard'
 import { GoogleMap, LoadScript, MarkerF } from '@react-google-maps/api'
 import { useEffect, useState } from 'react'
 
 const Map: React.FC = () => {
     const [places, setPlaces] = useState<Place[]>([])
     const [mapLoaded, setMapLoaded] = useState(false)
+
+    const [selectedPlace, setSelectedPlace] = useState<Place | null>(null)
 
     useEffect(() => {
         async function fetchPlaces() {
@@ -49,7 +52,7 @@ const Map: React.FC = () => {
                         latLngBounds: NETHERLANDS_BOUNDS,
                         strictBounds: true,
                     },
-                    styles: customMapStyles
+                    styles: customMapStyles,
                 }}
             >
                 {/* create markers for place types */}
@@ -66,8 +69,19 @@ const Map: React.FC = () => {
                                 scaledSize: new window.google.maps.Size(32, 32),
                             }}
                             title={place.name}
+                            onClick={() => {
+                                setSelectedPlace(place)
+                            }}
                         />
                     ))}
+
+                {/* card for marker details */}
+                {selectedPlace && (
+                    <PlaceCard
+                        place={selectedPlace}
+                        onClose={() => setSelectedPlace(null)}
+                    />
+                )}
             </GoogleMap>
         </LoadScript>
     )
