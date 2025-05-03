@@ -7,7 +7,7 @@ import restaurantIcon from '@/assets/icons/restaurant.webp'
 const API_URL = import.meta.env.VITE_API_URL
 const MOCK_PATH = '/src/mocks/'
 
-type PlaceType = 'Restaurant' | 'Museum' | 'Bar'
+type PlaceType = 'restaurant' | 'museum' | 'bar'
 type RecType = 'Trending' | 'Related'
 
 interface PlaceDTO {
@@ -44,7 +44,7 @@ class MapService {
     async getPlaces(): Promise<Place[]> {
         const url = this.useMock
             ? `${MOCK_PATH}/places.json`
-            : `${API_URL}/places`
+            : `${API_URL}/101/suggested_places/2`
 
         try {
             const response = await fetch(url)
@@ -69,7 +69,7 @@ class MapService {
     async getExtraPlaces(places: Place[]): Promise<Place[]> {
         const url = this.useMock
             ? `${MOCK_PATH}/more-places.json`
-            : `${API_URL}/more-places`
+            : `${API_URL}/101/suggested_places/4`
 
         try {
             const response = await fetch(url)
@@ -127,11 +127,11 @@ class MapService {
 
     static getIconForPlaceType(placeType: PlaceType): string {
         switch (placeType) {
-            case 'Restaurant':
+            case 'restaurant':
                 return restaurantIcon
-            case 'Bar':
+            case 'bar':
                 return barIcon
-            case 'Museum':
+            case 'museum':
                 return museumIcon
             default:
                 return ''
@@ -139,6 +139,6 @@ class MapService {
     }
 }
 
-const mapService = new MapService(true)
+const mapService = new MapService(false)
 
 export default mapService
