@@ -16,20 +16,10 @@ const LoginPage: React.FC = () => {
     }
 
     const proceedLogin = async () => {
-        const username = prompt('Username:')
-        const password = prompt('Password:')
-
-        if (
-            username &&
-            username.length > 0 &&
-            password &&
-            password.length > 0
-        ) {
-            setIsLoading(true)
-            await login()
-            navigate('/')
-            setIsLoading(false)
-        }
+        setIsLoading(true)
+        await login()
+        navigate('/')
+        setIsLoading(false)
     }
 
     return (

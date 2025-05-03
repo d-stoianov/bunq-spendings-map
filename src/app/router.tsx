@@ -1,51 +1,24 @@
+import CallbackPage from '@/app/routes/callback'
 import HomePage from '@/app/routes/home'
 import LoginPage from '@/app/routes/login'
-import { useAuth } from '@/context/AuthContext'
 import { HomeProvider } from '@/context/HomeContext'
 import React from 'react'
-import {
-    Navigate,
-    Route,
-    BrowserRouter as Router,
-    Routes,
-} from 'react-router-dom'
-
-const ProtectedRoute: React.FC<{ element: React.JSX.Element }> = ({
-    element,
-}) => {
-    const { user } = useAuth()
-
-    if (!user) {
-        return <Navigate to="/login" replace />
-    }
-
-    return element
-}
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 
 const AppRouter: React.FC = () => {
-    const { user } = useAuth()
-
     return (
         <Router>
             <Routes>
                 <Route
                     path="/"
                     element={
-                        <ProtectedRoute
-                            element={
-                                <HomeProvider>
-                                    <HomePage />
-                                </HomeProvider>
-                            }
-                        />
+                        <HomeProvider>
+                            <HomePage />
+                        </HomeProvider>
                     }
                 />
                 <Route path="/login" element={<LoginPage />} />
-
-                <Route
-                    path="*"
-                    element={<Navigate to={user ? '/' : '/login'} replace />}
-                />
+                <Route path="/callback" element={<CallbackPage />} />
             </Routes>
         </Router>
     )

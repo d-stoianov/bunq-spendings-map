@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState } from 'react'
 
+const CLIENT_ID = import.meta.env.VITE_OAUTH_CLIENT_ID
+
 export interface User {
     firstName: string
     lastName: string
@@ -8,30 +10,27 @@ export interface User {
 
 interface AuthContextProps {
     user: User | null
+    setUser: (user: User | null) => void
     login: () => Promise<void>
     logout: () => Promise<void>
 }
 
 const AuthContext = createContext<AuthContextProps>({
     user: null,
+    setUser: () => {},
     login: async () => {},
     logout: async () => {},
 })
 
-const mockUser: User = {
-    firstName: 'Dima',
-    lastName: 'Slav',
-    image: null,
-}
-
 const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     children,
 }) => {
-    const [user, setUser] = useState<User | null>(mockUser)
+    const [user, setUser] = useState<User | null>(null)
 
     const login = async () => {
-        await new Promise((resolve) => setTimeout(resolve, 2000))
-        setUser(mockUser)
+        const redirectUri = encodeURIComponent('http://localhost:5173')
+        const url = `https://oauth.sandbox.bunq.com/auth?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${redirectUri}`
+        window.location.replace(url)
     }
 
     const logout = async () => {
@@ -41,7 +40,8 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     return (
         <AuthContext.Provider
             value={{
-                user: user,
+                user,
+                setUser,
                 login,
                 logout,
             }}
