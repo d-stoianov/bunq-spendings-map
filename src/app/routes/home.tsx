@@ -31,11 +31,11 @@ const HomePage: React.FC = () => {
             )}
             <div className="flex h-screen flex-col items-center">
                 <header className="w-full bg-indigo-600 py-6 text-white shadow-md">
-                    <div className="text-center">
-                        <h1 className="mb-4 text-3xl font-bold">
+                    <div className="text-center px-4">
+                        <h1 className="mb-4 text-2xl md:text-3xl font-bold">
                             Discover Top Places Tailored Just for You
                         </h1>
-                        <p className="text-lg text-gray-300">
+                        <p className="text-sm md:text-lg text-gray-300">
                             We’ve handpicked the best spots based on your
                             preferences and activity. Whether it's a cozy cafe,
                             a night bar, or a must-visit museum, we’ve got
