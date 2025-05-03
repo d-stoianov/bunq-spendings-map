@@ -2,11 +2,14 @@ import MapIndicatorsOverview from '@/features/map-indicators/MapIndicatorsOvervi
 import Map from '@/features/map/Map'
 import mapService, { MapIndicator, Place } from '@/features/map/map-service'
 import Profile from '@/features/user-profile/Profile'
+import useIsMobile from '@/utils/isMobile'
 import React, { useEffect, useState } from 'react'
 
 const HomePage: React.FC = () => {
     const [places, setPlaces] = useState<Place[]>([])
     const [mapIndicators, setMapIndicators] = useState<MapIndicator[]>([])
+
+    const isMobile = useIsMobile()
 
     useEffect(() => {
         async function fetchPlaces() {
@@ -34,16 +37,25 @@ const HomePage: React.FC = () => {
                     </p>
                 </div>
             </header>
-            <main className="flex w-full justify-around py-8">
-                <div className="flex w-1/5 justify-center">
-                    <MapIndicatorsOverview indicators={mapIndicators} />
-                </div>
-                <div className="flex w-3/5 items-center justify-center">
+            <main className="flex w-full flex-col items-center justify-center gap-6 py-8 md:px-0 px-8 md:flex-row md:items-start md:justify-around">
+                {isMobile ? (
+                    <div className="flex w-full items-center justify-around">
+                        <MapIndicatorsOverview indicators={mapIndicators} />
+                        <Profile />
+                    </div>
+                ) : (
+                    <div className="flex w-full justify-center md:w-1/5">
+                        <MapIndicatorsOverview indicators={mapIndicators} />
+                    </div>
+                )}
+                <div className="flex w-full items-center justify-center md:w-3/5">
                     <Map places={places} />
                 </div>
-                <div className="flex w-1/5 justify-center">
-                    <Profile />
-                </div>
+                {!isMobile && (
+                    <div className="flex w-full justify-center md:w-1/5">
+                        <Profile />
+                    </div>
+                )}
             </main>
             <footer className="w-full bg-gray-900 py-6 text-white">
                 <div className="text-center">
