@@ -5,7 +5,7 @@ import relatedIcon from '@/assets/icons/related.webp'
 import restaurantIcon from '@/assets/icons/restaurant.webp'
 
 const API_URL = import.meta.env.VITE_API_URL
-const MOCK_PATH = '/mocks/places.json'
+const MOCK_PATH = '/mocks'
 
 type PlaceType = 'Restaurant' | 'Museum' | 'Bar'
 type RecType = 'Trending' | 'Related'
@@ -42,7 +42,9 @@ class MapService {
     }
 
     async getPlaces(): Promise<Place[]> {
-        const url = this.useMock ? MOCK_PATH : `${API_URL}/places`
+        const url = this.useMock
+            ? `${MOCK_PATH}/places.json`
+            : `${API_URL}/places`
 
         try {
             const response = await fetch(url)
@@ -58,6 +60,36 @@ class MapService {
             this.populateIndicators(places)
 
             return places
+        } catch (error) {
+            console.error('Failed to fetch places:', error)
+            return []
+        }
+    }
+
+    async getExtraPlaces(places: Place[]): Promise<Place[]> {
+        const url = this.useMock
+            ? `${MOCK_PATH}/more-places.json`
+            : `${API_URL}/more-places`
+
+        try {
+            const response = await fetch(url)
+            const morePlacesDTOs: PlaceDTO[] = await response.json()
+
+            // populate icons to the places
+            const morePlaces = morePlacesDTOs.map((p) => {
+                const icon = MapService.getIconForPlaceType(p.place_type)
+
+                return { ...p, place_type_icon: icon }
+            })
+
+            const combinedPlaces = [...places, ...morePlaces]
+
+            this.populateIndicators(combinedPlaces)
+
+            // mock loading
+            await new Promise((resolve) => setTimeout(resolve, 2000))
+
+            return combinedPlaces
         } catch (error) {
             console.error('Failed to fetch places:', error)
             return []

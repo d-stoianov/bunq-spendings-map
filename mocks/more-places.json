@@ -1,0 +1,142 @@
+[
+    {
+        "name": "Café de Pijp",
+        "short_summary": "Charming café in Amsterdam offering cozy seating and a variety of traditional Dutch dishes.",
+        "google_maps_link": "https://maps.google.com/?q=52.3567,4.8937",
+        "photos": [
+            "https://example.com/photos/depijp-1.jpg",
+            "https://example.com/photos/depijp-2.jpg"
+        ],
+        "coordinates": [52.3567, 4.8937],
+        "address": "Ceintuurbaan 160, 1072 GL Amsterdam, Netherlands",
+        "place_type": "Restaurant",
+        "rec_type": "Trending",
+        "rag_info_id": 301
+    },
+    {
+        "name": "Markthal Rotterdam",
+        "short_summary": "Iconic indoor market in Rotterdam featuring fresh produce, street food, and unique eateries.",
+        "google_maps_link": "https://maps.google.com/?q=51.9227,4.4818",
+        "photos": [
+            "https://example.com/photos/markthal-1.jpg",
+            "https://example.com/photos/markthal-2.jpg"
+        ],
+        "coordinates": [51.9227, 4.4818],
+        "address": "Ds. Jan Scharpstraat 75, 3011 GH Rotterdam, Netherlands",
+        "place_type": "Restaurant",
+        "rec_type": "Trending",
+        "rag_info_id": 302
+    },
+    {
+        "name": "Pannenkoekenhuis Upstairs",
+        "short_summary": "Small and quirky pancake house located in the heart of Amsterdam, serving traditional Dutch pancakes.",
+        "google_maps_link": "https://maps.google.com/?q=52.3722,4.8929",
+        "photos": [
+            "https://example.com/photos/upstairs-1.jpg",
+            "https://example.com/photos/upstairs-2.jpg"
+        ],
+        "coordinates": [52.3722, 4.8929],
+        "address": "Oudezijds Achterburgwal 47, 1012 DA Amsterdam, Netherlands",
+        "place_type": "Restaurant",
+        "rec_type": "Related",
+        "rag_info_id": 303
+    },
+    {
+        "name": "De Tuin van de Smaken",
+        "short_summary": "A hidden gem in The Hague, offering a farm-to-table dining experience in a peaceful garden setting.",
+        "google_maps_link": "https://maps.google.com/?q=52.0784,4.3112",
+        "photos": [
+            "https://example.com/photos/tuin-1.jpg",
+            "https://example.com/photos/tuin-2.jpg"
+        ],
+        "coordinates": [52.0784, 4.3112],
+        "address": "Buitenhof 19, 2513 AH Den Haag, Netherlands",
+        "place_type": "Restaurant",
+        "rec_type": "Related",
+        "rag_info_id": 304
+    },
+    {
+        "name": "Café de Herring",
+        "short_summary": "A quirky seafood café by the canals in Amsterdam, known for its fresh fish dishes and outdoor seating.",
+        "google_maps_link": "https://maps.google.com/?q=52.3727,4.8974",
+        "photos": [
+            "https://example.com/photos/herring-1.jpg",
+            "https://example.com/photos/herring-2.jpg"
+        ],
+        "coordinates": [52.3727, 4.8974],
+        "address": "Zeedijk 26, 1012 AT Amsterdam, Netherlands",
+        "place_type": "Restaurant",
+        "rec_type": "Trending",
+        "rag_info_id": 305
+    },
+    {
+        "name": "Biergarten",
+        "short_summary": "Vibrant beer garden in Rotterdam with a wide selection of craft beers and delicious snacks.",
+        "google_maps_link": "https://maps.google.com/?q=51.9244,4.4843",
+        "photos": [
+            "https://example.com/photos/biergarten-1.jpg",
+            "https://example.com/photos/biergarten-2.jpg"
+        ],
+        "coordinates": [51.9244, 4.4843],
+        "address": "Schiestraat 51, 3032 KH Rotterdam, Netherlands",
+        "place_type": "Bar",
+        "rec_type": "Related",
+        "rag_info_id": 306
+    },
+    {
+        "name": "Museum Boijmans Van Beuningen",
+        "short_summary": "One of the Netherlands' most important art museums, showcasing a diverse collection from medieval to contemporary art.",
+        "google_maps_link": "https://maps.google.com/?q=51.9201,4.4811",
+        "photos": [
+            "https://example.com/photos/boijmans-1.jpg",
+            "https://example.com/photos/boijmans-2.jpg"
+        ],
+        "coordinates": [51.9201, 4.4811],
+        "address": "Museumpark 18, 3015 CX Rotterdam, Netherlands",
+        "place_type": "Museum",
+        "rec_type": "Trending",
+        "rag_info_id": 307
+    },
+    {
+        "name": "Van Nelle Fabriek",
+        "short_summary": "A UNESCO World Heritage site and a hub for creative industries, housed in a former tobacco factory in Rotterdam.",
+        "google_maps_link": "https://maps.google.com/?q=51.9025,4.4393",
+        "photos": [
+            "https://example.com/photos/vannelle-1.jpg",
+            "https://example.com/photos/vannelle-2.jpg"
+        ],
+        "coordinates": [51.9025, 4.4393],
+        "address": "Van Nelleweg 1, 3044 BC Rotterdam, Netherlands",
+        "place_type": "Museum",
+        "rec_type": "Related",
+        "rag_info_id": 308
+    },
+    {
+        "name": "Brouwerij De 7 Deugden",
+        "short_summary": "Microbrewery in Amsterdam offering a wide selection of craft beers brewed on-site with an eco-friendly approach.",
+        "google_maps_link": "https://maps.google.com/?q=52.3734,4.9125",
+        "photos": [
+            "https://example.com/photos/7deugden-1.jpg",
+            "https://example.com/photos/7deugden-2.jpg"
+        ],
+        "coordinates": [52.3734, 4.9125],
+        "address": "Nieuwendijk 123, 1012 MJ Amsterdam, Netherlands",
+        "place_type": "Bar",
+        "rec_type": "Trending",
+        "rag_info_id": 309
+    },
+    {
+        "name": "De Hallen Amsterdam",
+        "short_summary": "Cultural complex housed in a former tram depot, featuring artisan food stalls, shops, and a cinema.",
+        "google_maps_link": "https://maps.google.com/?q=52.3731,4.8835",
+        "photos": [
+            "https://example.com/photos/dehallen-1.jpg",
+            "https://example.com/photos/dehallen-2.jpg"
+        ],
+        "coordinates": [52.3731, 4.8835],
+        "address": "Hannie Dankbaarpassage 47, 1053 RT Amsterdam, Netherlands",
+        "place_type": "Restaurant",
+        "rec_type": "Trending",
+        "rag_info_id": 310
+    }
+]

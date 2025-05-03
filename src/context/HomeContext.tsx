@@ -6,12 +6,16 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 interface HomeContextProps {
     isLoading: boolean
     places: Place[]
+    showViewMorePlaces: boolean
+    loadMorePlaces: () => Promise<void>
     mapIndicators: MapIndicator[]
 }
 
 const HomeContext = createContext<HomeContextProps>({
     isLoading: false,
     places: [],
+    loadMorePlaces: async () => {},
+    showViewMorePlaces: true,
     mapIndicators: [],
 })
 
@@ -22,6 +26,7 @@ const HomeProvider: React.FC<{ children: React.ReactNode }> = ({
     const [mapIndicators, setMapIndicators] = useState<MapIndicator[]>([])
     const [isMapServiceLoading, setIsMapServiceLoading] =
         useState<boolean>(false)
+    const [showViewMorePlaces, setShowViewMorePlaces] = useState<boolean>(true)
 
     // load google api
     const { isLoaded } = useJsApiLoader({
@@ -43,6 +48,15 @@ const HomeProvider: React.FC<{ children: React.ReactNode }> = ({
         fetchPlaces()
     }, [])
 
+    const loadMorePlaces = async () => {
+        const newPlaces = await mapService.getExtraPlaces(places)
+        const newMapIndicators = mapService.getIndicators()
+
+        setPlaces(newPlaces)
+        setMapIndicators(newMapIndicators)
+        setShowViewMorePlaces(false)
+    }
+
     // loading state (either google api or service)
     const isLoading = isMapServiceLoading || !isLoaded
 
@@ -50,6 +64,8 @@ const HomeProvider: React.FC<{ children: React.ReactNode }> = ({
         <HomeContext.Provider
             value={{
                 places,
+                showViewMorePlaces,
+                loadMorePlaces,
                 mapIndicators,
                 isLoading,
             }}

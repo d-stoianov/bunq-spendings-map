@@ -8,7 +8,7 @@ import useIsMobile from '@/utils/isMobile'
 import React from 'react'
 
 const HomePage: React.FC = () => {
-    const { isLoading } = useHome()
+    const { isLoading, loadMorePlaces } = useHome()
 
     const isMobile = useIsMobile()
 
@@ -18,7 +18,7 @@ const HomePage: React.FC = () => {
 
     return (
         <div className="flex h-screen flex-col items-center">
-            <header className="bg-indigo-600 w-full py-6 text-white shadow-md">
+            <header className="w-full bg-indigo-600 py-6 text-white shadow-md">
                 <div className="text-center">
                     <h1 className="mb-4 text-3xl font-bold">
                         Discover Top Places Tailored Just for You
@@ -26,7 +26,7 @@ const HomePage: React.FC = () => {
                     <p className="text-lg text-gray-300">
                         We’ve handpicked the best spots based on your
                         preferences and activity. Whether it's a cozy cafe, a
-                        scenic park, or a must-visit shop, we’ve got
+                        night bar, or a must-visit museum, we’ve got
                         personalized recommendations ready for you!
                     </p>
                 </div>
@@ -35,14 +35,14 @@ const HomePage: React.FC = () => {
                 {isMobile ? (
                     <>
                         <Profile />
-                        <MapSummary />
+                        <MapSummary onClick={loadMorePlaces} />
                         <div className="flex w-full items-start">
                             <MapIndicatorsOverview />
                         </div>
                     </>
                 ) : (
                     <div className="flex w-full flex-col justify-center gap-6 md:w-1/5">
-                        <MapSummary />
+                        <MapSummary onClick={loadMorePlaces} />
                         <MapIndicatorsOverview />
                     </div>
                 )}
