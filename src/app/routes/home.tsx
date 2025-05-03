@@ -1,5 +1,6 @@
 import LoadingPage from '@/app/loading'
 import { useHome } from '@/context/HomeContext'
+import ChatWindow from '@/features/chat/ChatWindow'
 import Map from '@/features/map/Map'
 import MapIndicatorsOverview from '@/features/map/MapIndicatorsOverview'
 import MapSummary from '@/features/map/MapSummary'
@@ -31,7 +32,7 @@ const HomePage: React.FC = () => {
                     </p>
                 </div>
             </header>
-            <main className="flex w-full flex-col items-center justify-center gap-6 px-8 py-8 md:flex-row md:items-start md:justify-around md:px-4">
+            <main className="flex w-full flex-col items-center justify-center gap-6 px-8 py-8 md:flex-row md:items-start md:justify-around md:px-6">
                 {isMobile ? (
                     <>
                         <Profile />
@@ -41,17 +42,18 @@ const HomePage: React.FC = () => {
                         </div>
                     </>
                 ) : (
-                    <div className="flex w-full flex-col justify-center gap-6 md:w-1/5">
+                    <div className="flex w-full flex-col justify-center gap-6 md:w-2/6">
                         <MapSummary onClick={loadMorePlaces} />
                         <MapIndicatorsOverview />
                     </div>
                 )}
-                <div className="flex w-full items-center justify-center md:w-3/5">
+                <div className="flex w-full items-center justify-center">
                     <Map />
                 </div>
                 {!isMobile && (
-                    <div className="flex w-full justify-center md:w-1/5">
+                    <div className="flex w-full flex-col items-center h-full justify-between md:w-2/5">
                         <Profile />
+                        <ChatWindow />
                     </div>
                 )}
             </main>
