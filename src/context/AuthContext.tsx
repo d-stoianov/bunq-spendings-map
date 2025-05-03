@@ -1,6 +1,6 @@
-import { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 
-interface User {
+export interface User {
     name: string
     image: string | null
 }
@@ -17,15 +17,15 @@ const AuthContext = createContext<AuthContextProps>({
     logout: async () => {},
 })
 
+const mockUser: User = {
+    name: 'dima',
+    image: null,
+}
+
 const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     children,
 }) => {
-    const [user, setUser] = useState<User | null>(null)
-
-    const mockUser: User = {
-        name: 'dima',
-        image: null,
-    }
+    const [user, setUser] = useState<User | null>(mockUser)
 
     const login = async () => {
         setUser(mockUser)
