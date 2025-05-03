@@ -30,6 +30,7 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     const [user, setUser] = useState<User | null>(mockUser)
 
     const login = async () => {
+        await new Promise((resolve) => setTimeout(resolve, 2000))
         setUser(mockUser)
     }
 

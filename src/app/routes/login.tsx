@@ -1,12 +1,36 @@
+import LoadingPage from '@/app/loading'
 import bunqLogo from '@/assets/bunq-logo.png'
 import { useAuth } from '@/context/AuthContext'
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const LoginPage: React.FC = () => {
     const { login } = useAuth()
 
     const navigate = useNavigate()
+
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+
+    if (isLoading) {
+        return <LoadingPage />
+    }
+
+    const proceedLogin = async () => {
+        const username = prompt('Username:')
+        const password = prompt('Password:')
+
+        if (
+            username &&
+            username.length > 0 &&
+            password &&
+            password.length > 0
+        ) {
+            setIsLoading(true)
+            await login()
+            navigate('/')
+            setIsLoading(false)
+        }
+    }
 
     return (
         <main className="flex h-screen items-center justify-center md:bg-gray-900">
@@ -30,10 +54,7 @@ const LoginPage: React.FC = () => {
                     />
                     <button
                         className="w-fit rounded-lg bg-indigo-600 px-6 py-3 text-lg font-semibold text-white transition duration-300 hover:bg-indigo-700"
-                        onClick={() => {
-                            login()
-                            navigate('/')
-                        }}
+                        onClick={proceedLogin}
                     >
                         Log In with bunq
                     </button>
