@@ -4,12 +4,31 @@ import {
     mapContainerStyle,
     NETHERLANDS_BOUNDS,
 } from '@/features/map/constants'
+import mapService, { Place } from '@/features/map/map-service'
 import '@/features/map/map-styles.css'
-import { GoogleMap, LoadScript } from '@react-google-maps/api' // Use MarkerF as a fallback
+import { GoogleMap, LoadScript, MarkerF } from '@react-google-maps/api'
+import { useEffect, useState } from 'react'
 
 const Map: React.FC = () => {
+    const [places, setPlaces] = useState<Place[]>([])
+    const [mapLoaded, setMapLoaded] = useState(false)
+
+    useEffect(() => {
+        async function fetchPlaces() {
+            const places = await mapService.getPlaces()
+            setPlaces(places)
+        }
+
+        fetchPlaces()
+    }, [])
+
+    console.log(places)
+
     return (
-        <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>
+        <LoadScript
+            googleMapsApiKey={GOOGLE_MAPS_API_KEY}
+            onLoad={() => setMapLoaded(true)}
+        >
             <GoogleMap
                 mapContainerStyle={mapContainerStyle}
                 center={AMSTERDAM_COORDINATES}
@@ -27,10 +46,27 @@ const Map: React.FC = () => {
                     disableDoubleClickZoom: true,
                     restriction: {
                         latLngBounds: NETHERLANDS_BOUNDS,
-                        strictBounds: true, // Ensure the map is always inside the bounds
+                        strictBounds: true,
                     },
                 }}
-            ></GoogleMap>
+            >
+                {/* create markers for place types */}
+                {mapLoaded &&
+                    places.map((place, idx) => (
+                        <MarkerF
+                            key={idx}
+                            position={{
+                                lat: place.coordinates[0],
+                                lng: place.coordinates[1],
+                            }}
+                            icon={{
+                                url: place.place_type_icon,
+                                scaledSize: new window.google.maps.Size(32, 32),
+                            }}
+                            title={place.name}
+                        />
+                    ))}
+            </GoogleMap>
         </LoadScript>
     )
 }

@@ -1,0 +1,142 @@
+[
+    {
+        "name": "Café de Jaren",
+        "short_summary": "Spacious café in Amsterdam with a scenic canalside terrace and a diverse international menu.",
+        "google_maps_link": "https://maps.google.com/?q=52.3676,4.8952",
+        "photos": [
+            "https://example.com/photos/de-jaren-1.jpg",
+            "https://example.com/photos/de-jaren-2.jpg"
+        ],
+        "coordinates": [52.3676, 4.8952],
+        "address": "Nieuwe Doelenstraat 20, 1012 CP Amsterdam, Netherlands",
+        "place_type": "Restaurant",
+        "rec_type": "Trending",
+        "rag_info_id": 201
+    },
+    {
+        "name": "Fenix Food Factory",
+        "short_summary": "Trendy food hall in Rotterdam offering local bites, craft beer, and harbor views.",
+        "google_maps_link": "https://maps.google.com/?q=51.9001,4.4884",
+        "photos": [
+            "https://example.com/photos/fenix-1.jpg",
+            "https://example.com/photos/fenix-2.jpg"
+        ],
+        "coordinates": [51.9001, 4.4884],
+        "address": "Nico Koomanskade 1025, 3072 LM Rotterdam, Netherlands",
+        "place_type": "Restaurant",
+        "rec_type": "Trending",
+        "rag_info_id": 202
+    },
+    {
+        "name": "Gys Utrecht",
+        "short_summary": "Organic and sustainable food in a cozy setting, right in the center of Utrecht.",
+        "google_maps_link": "https://maps.google.com/?q=52.0941,5.1182",
+        "photos": [
+            "https://example.com/photos/gys-1.jpg",
+            "https://example.com/photos/gys-2.jpg"
+        ],
+        "coordinates": [52.0941, 5.1182],
+        "address": "Voorstraat 77, 3512 AL Utrecht, Netherlands",
+        "place_type": "Restaurant",
+        "rec_type": "Related",
+        "rag_info_id": 203
+    },
+    {
+        "name": "Bleyenberg",
+        "short_summary": "Stylish rooftop restaurant and bar in The Hague with views and creative cuisine.",
+        "google_maps_link": "https://maps.google.com/?q=52.0771,4.3103",
+        "photos": [
+            "https://example.com/photos/bleyenberg-1.jpg",
+            "https://example.com/photos/bleyenberg-2.jpg"
+        ],
+        "coordinates": [52.0771, 4.3103],
+        "address": "Grote Markt 10, 2511 BG Den Haag, Netherlands",
+        "place_type": "Restaurant",
+        "rec_type": "Trending",
+        "rag_info_id": 204
+    },
+    {
+        "name": "The Streetfood Club",
+        "short_summary": "A vibrant and eclectic street food restaurant with global influences in Utrecht.",
+        "google_maps_link": "https://maps.google.com/?q=52.0916,5.1195",
+        "photos": [
+            "https://example.com/photos/streetfoodclub-1.jpg",
+            "https://example.com/photos/streetfoodclub-2.jpg"
+        ],
+        "coordinates": [52.0916, 5.1195],
+        "address": "Janskerkhof 9, 3512 BK Utrecht, Netherlands",
+        "place_type": "Restaurant",
+        "rec_type": "Trending",
+        "rag_info_id": 205
+    },
+    {
+        "name": "Restaurant De Kas",
+        "short_summary": "Farm-to-table dining in a greenhouse setting, located in a city park in Amsterdam.",
+        "google_maps_link": "https://maps.google.com/?q=52.3496,4.9251",
+        "photos": [
+            "https://example.com/photos/dekas-1.jpg",
+            "https://example.com/photos/dekas-2.jpg"
+        ],
+        "coordinates": [52.3496, 4.9251],
+        "address": "Kamerlingh Onneslaan 3, 1097 DE Amsterdam, Netherlands",
+        "place_type": "Restaurant",
+        "rec_type": "Related",
+        "rag_info_id": 206
+    },
+    {
+        "name": "Dudok Rotterdam",
+        "short_summary": "Classic Dutch brasserie known for apple pie and all-day dining in a stately building.",
+        "google_maps_link": "https://maps.google.com/?q=51.9225,4.4792",
+        "photos": [
+            "https://example.com/photos/dudok-1.jpg",
+            "https://example.com/photos/dudok-2.jpg"
+        ],
+        "coordinates": [51.9225, 4.4792],
+        "address": "Meent 88, 3011 JP Rotterdam, Netherlands",
+        "place_type": "Restaurant",
+        "rec_type": "Trending",
+        "rag_info_id": 207
+    },
+    {
+        "name": "Karavaan",
+        "short_summary": "All-day hangout spot in Amsterdam West with global street food and cocktails.",
+        "google_maps_link": "https://maps.google.com/?q=52.3702,4.8560",
+        "photos": [
+            "https://example.com/photos/karavaan-1.jpg",
+            "https://example.com/photos/karavaan-2.jpg"
+        ],
+        "coordinates": [52.3702, 4.856],
+        "address": "Kwakersplein 2, 1053 TZ Amsterdam, Netherlands",
+        "place_type": "Restaurant",
+        "rec_type": "Related",
+        "rag_info_id": 208
+    },
+    {
+        "name": "De Drie Gezusters",
+        "short_summary": "Historic restaurant-bar in Groningen with grand interiors and a popular terrace.",
+        "google_maps_link": "https://maps.google.com/?q=53.2184,6.5678",
+        "photos": [
+            "https://example.com/photos/3gezusters-1.jpg",
+            "https://example.com/photos/3gezusters-2.jpg"
+        ],
+        "coordinates": [53.2184, 6.5678],
+        "address": "Grote Markt 36/39, 9711 LV Groningen, Netherlands",
+        "place_type": "Restaurant",
+        "rec_type": "Trending",
+        "rag_info_id": 209
+    },
+    {
+        "name": "Humphrey's Nijmegen",
+        "short_summary": "Charming canal-side dining in Nijmegen offering seasonal Dutch-European dishes.",
+        "google_maps_link": "https://maps.google.com/?q=51.8467,5.8620",
+        "photos": [
+            "https://example.com/photos/humphreys-1.jpg",
+            "https://example.com/photos/humphreys-2.jpg"
+        ],
+        "coordinates": [51.8467, 5.862],
+        "address": "Voerweg 56, 6511 ZM Nijmegen, Netherlands",
+        "place_type": "Restaurant",
+        "rec_type": "Related",
+        "rag_info_id": 210
+    }
+]
