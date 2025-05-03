@@ -5,26 +5,16 @@ import {
     mapContainerStyle,
     NETHERLANDS_BOUNDS,
 } from '@/features/map/constants'
-import mapService, { Place } from '@/features/map/map-service'
+import { Place } from '@/features/map/map-service'
 import '@/features/map/map-styles.css'
 import PlaceCard from '@/features/map/PlaceCard'
 import { GoogleMap, LoadScript, MarkerF } from '@react-google-maps/api'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 
-const Map: React.FC = () => {
-    const [places, setPlaces] = useState<Place[]>([])
+const Map: React.FC<{ places: Place[] }> = ({ places }) => {
     const [mapLoaded, setMapLoaded] = useState(false)
     const [selectedPlace, setSelectedPlace] = useState<Place | null>(null)
     const mapRef = useRef<google.maps.Map | null>(null)
-
-    useEffect(() => {
-        async function fetchPlaces() {
-            const places = await mapService.getPlaces()
-            setPlaces(places)
-        }
-
-        fetchPlaces()
-    }, [])
 
     const handleMarkerClick = (place: Place) => {
         setSelectedPlace(place)

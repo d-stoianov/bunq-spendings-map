@@ -1,5 +1,7 @@
-import restaurantIcon from "@/assets/icons/restaurant.webp"
-import museumIcon from "@/assets/icons/museum.svg"
+import fireIcon from '@/assets/icons/fire.png'
+import museumIcon from '@/assets/icons/museum.svg'
+import relatedIcon from '@/assets/icons/related.svg'
+import restaurantIcon from '@/assets/icons/restaurant.webp'
 
 const API_URL = import.meta.env.VITE_API_URL
 const MOCK_PATH = '/mocks/places.json'
@@ -23,11 +25,19 @@ export type Place = PlaceDTO & {
     place_type_icon: string
 }
 
+export type MapIndicator = {
+    name: PlaceType | RecType
+    icon: string
+}
+
 class MapService {
     private useMock: boolean
 
+    private mapIndicators: MapIndicator[]
+
     constructor(useMock: boolean = false) {
         this.useMock = useMock
+        this.mapIndicators = []
     }
 
     async getPlaces(): Promise<Place[]> {
@@ -44,11 +54,42 @@ class MapService {
                 return { ...p, place_type_icon: icon }
             })
 
+            this.populateIndicators(places)
+
             return places
         } catch (error) {
             console.error('Failed to fetch places:', error)
             return []
         }
+    }
+
+    getIndicators(): MapIndicator[] {
+        return Array.from(this.mapIndicators)
+    }
+
+    private populateIndicators(places: Place[]) {
+        places.forEach((p) => {
+            const placeTypeIndicator: MapIndicator = {
+                name: p.place_type,
+                icon: p.place_type_icon,
+            }
+
+            this.mapIndicators.push(placeTypeIndicator)
+        })
+
+        places.forEach((p) => {
+            const recTypeIndicator: MapIndicator = {
+                name: p.rec_type,
+                icon: p.rec_type === 'Related' ? relatedIcon : fireIcon,
+            }
+
+            this.mapIndicators.push(recTypeIndicator)
+        })
+
+        this.mapIndicators = this.mapIndicators.filter(
+            (obj1, i, arr) =>
+                arr.findIndex((obj2) => obj2.name === obj1.name) === i
+        )
     }
 
     static getIconForPlaceType(placeType: PlaceType): string {
