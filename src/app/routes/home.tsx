@@ -1,7 +1,8 @@
 import LoadingPage from '@/app/loading'
 import { useHome } from '@/context/HomeContext'
-import MapIndicatorsOverview from '@/features/map-indicators/MapIndicatorsOverview'
 import Map from '@/features/map/Map'
+import MapIndicatorsOverview from '@/features/map/MapIndicatorsOverview'
+import MapSummary from '@/features/map/MapSummary'
 import Profile from '@/features/user-profile/Profile'
 import useIsMobile from '@/utils/isMobile'
 import React from 'react'
@@ -17,29 +18,31 @@ const HomePage: React.FC = () => {
 
     return (
         <div className="flex h-screen flex-col items-center">
-            <header className="w-full bg-gradient-to-r from-indigo-600 to-indigo-900 py-6 text-white shadow-md">
+            <header className="bg-indigo-600 w-full py-6 text-white shadow-md">
                 <div className="text-center">
                     <h1 className="mb-4 text-3xl font-bold">
-                        Explore Some Places Based On Others Experiece
+                        Discover Top Places Tailored Just for You
                     </h1>
                     <p className="text-lg text-gray-300">
-                        Whether you're looking for a cozy cafe, a unique
-                        shopping spot, or a relaxing park, we're here to help
-                        you discover the best places around you. Let us guide
-                        you to your next favorite spot!
+                        We’ve handpicked the best spots based on your
+                        preferences and activity. Whether it's a cozy cafe, a
+                        scenic park, or a must-visit shop, we’ve got
+                        personalized recommendations ready for you!
                     </p>
                 </div>
             </header>
-            <main className="flex w-full flex-col items-center justify-center gap-6 px-8 py-8 md:flex-row md:items-start md:justify-around md:px-0">
+            <main className="flex w-full flex-col items-center justify-center gap-6 px-8 py-8 md:flex-row md:items-start md:justify-around md:px-4">
                 {isMobile ? (
                     <>
                         <Profile />
+                        <MapSummary />
                         <div className="flex w-full items-start">
                             <MapIndicatorsOverview />
                         </div>
                     </>
                 ) : (
-                    <div className="flex w-full justify-center md:w-1/5">
+                    <div className="flex w-full flex-col justify-center gap-6 md:w-1/5">
+                        <MapSummary />
                         <MapIndicatorsOverview />
                     </div>
                 )}
