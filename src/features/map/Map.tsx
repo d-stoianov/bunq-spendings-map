@@ -9,13 +9,13 @@ import mapService, { Place } from '@/features/map/map-service'
 import '@/features/map/map-styles.css'
 import PlaceCard from '@/features/map/PlaceCard'
 import { GoogleMap, LoadScript, MarkerF } from '@react-google-maps/api'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const Map: React.FC = () => {
     const [places, setPlaces] = useState<Place[]>([])
     const [mapLoaded, setMapLoaded] = useState(false)
-
     const [selectedPlace, setSelectedPlace] = useState<Place | null>(null)
+    const mapRef = useRef<google.maps.Map | null>(null)
 
     useEffect(() => {
         async function fetchPlaces() {
@@ -26,17 +26,27 @@ const Map: React.FC = () => {
         fetchPlaces()
     }, [])
 
-    console.log(places)
+    const handleMarkerClick = (place: Place) => {
+        setSelectedPlace(place)
+        if (mapRef.current) {
+            mapRef.current.panTo({
+                lat: place.coordinates[0],
+                lng: place.coordinates[1],
+            })
+            mapRef.current.setZoom(12)
+        }
+    }
 
     return (
-        <LoadScript
-            googleMapsApiKey={GOOGLE_MAPS_API_KEY}
-            onLoad={() => setMapLoaded(true)}
-        >
+        <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>
             <GoogleMap
+                onLoad={(map) => {
+                    setMapLoaded(true)
+                    mapRef.current = map
+                }}
                 mapContainerStyle={mapContainerStyle}
                 center={AMSTERDAM_COORDINATES}
-                zoom={1}
+                zoom={8}
                 options={{
                     disableDefaultUI: true,
                     zoomControl: false,
@@ -55,7 +65,6 @@ const Map: React.FC = () => {
                     styles: customMapStyles,
                 }}
             >
-                {/* create markers for place types */}
                 {mapLoaded &&
                     places.map((place, idx) => (
                         <MarkerF
@@ -69,13 +78,10 @@ const Map: React.FC = () => {
                                 scaledSize: new window.google.maps.Size(32, 32),
                             }}
                             title={place.name}
-                            onClick={() => {
-                                setSelectedPlace(place)
-                            }}
+                            onClick={() => handleMarkerClick(place)}
                         />
                     ))}
 
-                {/* card for marker details */}
                 {selectedPlace && (
                     <PlaceCard
                         place={selectedPlace}
