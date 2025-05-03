@@ -5,11 +5,12 @@ import { useNavigate } from 'react-router-dom'
 
 const LoginPage: React.FC = () => {
     const { login } = useAuth()
+
     const navigate = useNavigate()
 
     return (
-        <main className="flex h-screen items-center justify-center bg-slate-800">
-            <div className="flex max-w-[500px] flex-col gap-4 rounded-lg bg-white p-6 text-center shadow-lg">
+        <main className="flex h-screen items-center justify-center md:bg-slate-800">
+            <div className="flex max-w-[500px] flex-col gap-4 rounded-lg bg-white p-6 text-center md:shadow-lg">
                 <h1 className="text-3xl font-bold text-gray-900">
                     Discover New Places Based on Your Spending
                 </h1>

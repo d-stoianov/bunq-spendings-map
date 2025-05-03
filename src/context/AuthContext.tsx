@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useState } from 'react'
 
 export interface User {
-    name: string
+    firstName: string
+    lastName: string
     image: string | null
 }
 
@@ -18,7 +19,8 @@ const AuthContext = createContext<AuthContextProps>({
 })
 
 const mockUser: User = {
-    name: 'dima',
+    firstName: 'Dima',
+    lastName: 'Slav',
     image: null,
 }
 

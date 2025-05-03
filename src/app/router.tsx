@@ -1,6 +1,7 @@
 import HomePage from '@/app/routes/home'
 import LoginPage from '@/app/routes/login'
 import { useAuth } from '@/context/AuthContext'
+import { HomeProvider } from '@/context/HomeContext'
 import React from 'react'
 import {
     Navigate,
@@ -29,7 +30,15 @@ const AppRouter: React.FC = () => {
             <Routes>
                 <Route
                     path="/"
-                    element={<ProtectedRoute element={<HomePage />} />}
+                    element={
+                        <ProtectedRoute
+                            element={
+                                <HomeProvider>
+                                    <HomePage />
+                                </HomeProvider>
+                            }
+                        />
+                    }
                 />
                 <Route path="/login" element={<LoginPage />} />
 

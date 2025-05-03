@@ -1,12 +1,12 @@
-import { MapIndicator } from '@/features/map/map-service'
+import { useHome } from '@/context/HomeContext'
 
-const MapIndicatorsOverview: React.FC<{ indicators: MapIndicator[] }> = ({
-    indicators,
-}) => {
+const MapIndicatorsOverview: React.FC = () => {
+    const { mapIndicators } = useHome()
+
     return (
         <div className="flex flex-col gap-2">
-            {indicators.map((i) => (
-                <div className="flex items-center gap-2">
+            {mapIndicators.map((i, idx) => (
+                <div className="flex items-center gap-2" key={idx}>
                     <span>
                         <img className="w-[28px]" src={i.icon} />
                     </span>

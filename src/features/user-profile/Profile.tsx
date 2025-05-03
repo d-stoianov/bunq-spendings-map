@@ -20,7 +20,9 @@ const Profile: React.FC = () => {
                     alt="User"
                 />
                 <span className="text-lg font-medium text-gray-700">
-                    {user.name}
+                    {user.firstName}
+                    {" "}
+                    {user.lastName}
                 </span>
                 <button
                     onClick={logout}
