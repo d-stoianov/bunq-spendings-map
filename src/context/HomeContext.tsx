@@ -37,7 +37,7 @@ const HomeProvider: React.FC<{ children: React.ReactNode }> = ({
 
     useEffect(() => {
         async function fetchPlaces() {
-            setIsMapServiceLoading(false)
+            setIsMapServiceLoading(true)
             const places = await mapService.getPlaces()
             const mapIndicators = mapService.getIndicators()
             setPlaces(places)
