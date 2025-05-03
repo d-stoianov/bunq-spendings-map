@@ -138,5 +138,89 @@
         "place_type": "Restaurant",
         "rec_type": "Related",
         "rag_info_id": 210
+    },
+    {
+        "name": "Museum Van Gogh",
+        "short_summary": "World-renowned museum dedicated to the works of Vincent van Gogh and his contemporaries in Amsterdam.",
+        "google_maps_link": "https://maps.google.com/?q=52.3584,4.8810",
+        "photos": [
+            "https://example.com/photos/vangogh-1.jpg",
+            "https://example.com/photos/vangogh-2.jpg"
+        ],
+        "coordinates": [52.3584, 4.881],
+        "address": "Paulus Potterstraat 7, 1071 CX Amsterdam, Netherlands",
+        "place_type": "Museum",
+        "rec_type": "Trending",
+        "rag_info_id": 211
+    },
+    {
+        "name": "Rijksmuseum",
+        "short_summary": "Iconic museum in Amsterdam housing a vast collection of Dutch art, history, and cultural heritage.",
+        "google_maps_link": "https://maps.google.com/?q=52.3600,4.8852",
+        "photos": [
+            "https://example.com/photos/rijksmuseum-1.jpg",
+            "https://example.com/photos/rijksmuseum-2.jpg"
+        ],
+        "coordinates": [52.36, 4.8852],
+        "address": "Museumstraat 1, 1070 AJ Amsterdam, Netherlands",
+        "place_type": "Museum",
+        "rec_type": "Trending",
+        "rag_info_id": 212
+    },
+    {
+        "name": "Het Scheepvaartmuseum (National Maritime Museum)",
+        "short_summary": "A maritime museum in Amsterdam showcasing Dutch naval history with interactive exhibits.",
+        "google_maps_link": "https://maps.google.com/?q=52.3750,4.9146",
+        "photos": [
+            "https://example.com/photos/scheepvaartmuseum-1.jpg",
+            "https://example.com/photos/scheepvaartmuseum-2.jpg"
+        ],
+        "coordinates": [52.375, 4.9146],
+        "address": "Kattenburgerplein 1, 1018 KK Amsterdam, Netherlands",
+        "place_type": "Museum",
+        "rec_type": "Related",
+        "rag_info_id": 213
+    },
+    {
+        "name": "Brouwerij 't IJ",
+        "short_summary": "Popular microbrewery in Amsterdam offering a variety of craft beers and a cozy atmosphere.",
+        "google_maps_link": "https://maps.google.com/?q=52.3705,4.9150",
+        "photos": [
+            "https://example.com/photos/brouwerij-1.jpg",
+            "https://example.com/photos/brouwerij-2.jpg"
+        ],
+        "coordinates": [52.3705, 4.915],
+        "address": "Funenkade 7, 1018 AL Amsterdam, Netherlands",
+        "place_type": "Bar",
+        "rec_type": "Trending",
+        "rag_info_id": 214
+    },
+    {
+        "name": "Proeflokaal Arendsnest",
+        "short_summary": "A Dutch beer bar offering an extensive selection of local craft beers in a relaxed setting in Amsterdam.",
+        "google_maps_link": "https://maps.google.com/?q=52.3715,4.8953",
+        "photos": [
+            "https://example.com/photos/arendsnest-1.jpg",
+            "https://example.com/photos/arendsnest-2.jpg"
+        ],
+        "coordinates": [52.3715, 4.8953],
+        "address": "Herengracht 90, 1015 BS Amsterdam, Netherlands",
+        "place_type": "Bar",
+        "rec_type": "Related",
+        "rag_info_id": 215
+    },
+    {
+        "name": "The Bulldog",
+        "short_summary": "Famous Amsterdam-based cannabis coffee shop chain offering a laid-back atmosphere and drinks.",
+        "google_maps_link": "https://maps.google.com/?q=52.3701,4.8915",
+        "photos": [
+            "https://example.com/photos/bulldog-1.jpg",
+            "https://example.com/photos/bulldog-2.jpg"
+        ],
+        "coordinates": [52.3701, 4.8915],
+        "address": "Oudezijds Voorburgwal 90, 1012 GG Amsterdam, Netherlands",
+        "place_type": "Bar",
+        "rec_type": "Trending",
+        "rag_info_id": 216
     }
 ]

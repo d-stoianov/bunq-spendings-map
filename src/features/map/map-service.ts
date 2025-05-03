@@ -1,3 +1,4 @@
+import barIcon from '@/assets/icons/bar.png'
 import fireIcon from '@/assets/icons/fire.png'
 import museumIcon from '@/assets/icons/museum.svg'
 import relatedIcon from '@/assets/icons/related.svg'
@@ -97,11 +98,11 @@ class MapService {
             case 'Restaurant':
                 return restaurantIcon
             case 'Bar':
-                return '/icons/bar.png'
+                return barIcon
             case 'Museum':
                 return museumIcon
             default:
-                return '/icons/default.png'
+                return ''
         }
     }
 }
