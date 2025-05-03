@@ -1,7 +1,7 @@
 import barIcon from '@/assets/icons/bar.png'
 import fireIcon from '@/assets/icons/fire.png'
 import museumIcon from '@/assets/icons/museum.svg'
-import relatedIcon from '@/assets/icons/related.svg'
+import relatedIcon from '@/assets/icons/related.webp'
 import restaurantIcon from '@/assets/icons/restaurant.webp'
 
 const API_URL = import.meta.env.VITE_API_URL

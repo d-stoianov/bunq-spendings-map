@@ -1,3 +1,5 @@
+import fireIcon from '@/assets/icons/fire.png'
+import relatedIcon from '@/assets/icons/related.webp'
 import { useHome } from '@/context/HomeContext'
 import {
     AMSTERDAM_COORDINATES,
@@ -8,7 +10,7 @@ import {
 import { Place } from '@/features/map/map-service'
 import '@/features/map/map-styles.css'
 import PlaceCard from '@/features/map/PlaceCard'
-import { GoogleMap, MarkerF } from '@react-google-maps/api'
+import { GoogleMap, MarkerF, OverlayView } from '@react-google-maps/api'
 import { useRef, useState } from 'react'
 
 const Map: React.FC = () => {
@@ -70,7 +72,25 @@ const Map: React.FC = () => {
                         }}
                         title={place.name}
                         onClick={() => handleMarkerClick(place)}
-                    />
+                    >
+                        {/* Custom overlay */}
+                        <OverlayView
+                            position={{
+                                lat: place.coordinates[0],
+                                lng: place.coordinates[1],
+                            }}
+                            mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+                        >
+                            <img
+                                src={
+                                    place.rec_type === 'Related'
+                                        ? relatedIcon
+                                        : fireIcon
+                                }
+                                className="absolute left-[6px] top-[-40px] w-[24px]"
+                            />
+                        </OverlayView>
+                    </MarkerF>
                 ))}
 
             {selectedPlace && (
