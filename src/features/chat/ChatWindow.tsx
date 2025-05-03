@@ -5,7 +5,9 @@ const ChatWindow = () => {
     const [input, setInput] = useState('')
     const messagesEndRef = useRef<HTMLDivElement | null>(null)
 
-    const [messages, setMessages] = useState<ChatMessage[]>([])
+    const [messages, setMessages] = useState<ChatMessage[]>([
+        { content: 'How can I help you with your spots ?', sender: 'bot' },
+    ])
 
     const sendMessage = async () => {
         const trimmedMessage = input.trim()
@@ -39,7 +41,7 @@ const ChatWindow = () => {
                 {messages.map((cEl, index) => (
                     <div
                         key={index}
-                        className={`max-w-xs rounded-md p-2 ${
+                        className={`rounded-md p-2 w-fit ${
                             cEl.sender === 'user'
                                 ? 'ml-auto self-end bg-blue-100'
                                 : 'mr-auto self-start bg-gray-100'

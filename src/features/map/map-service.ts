@@ -5,7 +5,7 @@ import relatedIcon from '@/assets/icons/related.webp'
 import restaurantIcon from '@/assets/icons/restaurant.webp'
 
 const API_URL = import.meta.env.VITE_API_URL
-const MOCK_PATH = '/mocks'
+const MOCK_PATH = '/src/mocks/'
 
 type PlaceType = 'Restaurant' | 'Museum' | 'Bar'
 type RecType = 'Trending' | 'Related'
