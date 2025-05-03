@@ -1,23 +1,26 @@
+import chatService, { ChatMessage } from '@/features/chat/chat-service'
 import { useEffect, useRef, useState } from 'react'
 
 const ChatWindow = () => {
-    const [messages, setMessages] = useState([
-        {
-            text: "Ask a question about places we've picked up for you!",
-            sender: 'bot',
-        },
-    ])
     const [input, setInput] = useState('')
     const messagesEndRef = useRef<HTMLDivElement | null>(null)
 
-    const sendMessage = () => {
-        if (!input.trim()) return
-        setMessages([...messages, { text: input, sender: 'user' }])
+    const [messages, setMessages] = useState<ChatMessage[]>([])
+
+    const sendMessage = async () => {
+        const trimmedMessage = input.trim()
+
+        if (!trimmedMessage) return
+
+        setMessages([...messages, { content: trimmedMessage, sender: 'user' }])
         setInput('')
+
+        const response = await chatService.chat(trimmedMessage)
+
         setTimeout(() => {
             setMessages((prev) => [
                 ...prev,
-                { text: 'blablabla', sender: 'bot' },
+                { content: response.content, sender: 'bot' },
             ])
         }, 500)
     }
@@ -33,16 +36,16 @@ const ChatWindow = () => {
             </div>
 
             <div className="flex-1 space-y-2 overflow-y-auto p-4 text-sm">
-                {messages.map((msg, index) => (
+                {messages.map((cEl, index) => (
                     <div
                         key={index}
                         className={`max-w-xs rounded-md p-2 ${
-                            msg.sender === 'user'
+                            cEl.sender === 'user'
                                 ? 'ml-auto self-end bg-blue-100'
                                 : 'mr-auto self-start bg-gray-100'
                         }`}
                     >
-                        {msg.text}
+                        {cEl.content}
                     </div>
                 ))}
                 <div ref={messagesEndRef} />
